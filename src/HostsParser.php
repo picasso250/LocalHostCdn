@@ -23,7 +23,7 @@ class HostsParser
                 } else {
                     $map_text = substr($line_text, 0, $pos);
                     $line->map = new Map($map_text);
-                    $comment_text = substr($line_text, $pos);
+                    $comment_text = substr($line_text, $pos+1);
                     $line->comment = new Comment($comment_text);
                 }
             }
