@@ -1,4 +1,7 @@
 <?php
+
+namespace hosts;
+
 class Comment
 {
     public $text;

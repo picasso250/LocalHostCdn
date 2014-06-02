@@ -1,5 +1,7 @@
 <?php
 
+namespace hosts;
+
 class HostsParser
 {
     public $lines;

@@ -1,5 +1,7 @@
 <?php
 
+namespace hosts;
+
 class Line
 {
     const TYPE_EMPTY = 1;

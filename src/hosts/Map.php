@@ -1,5 +1,7 @@
 <?php
 
+namespace hosts;
+
 class Map
 {
     public $ip;
