@@ -21,7 +21,7 @@ class Map
             throw new \Exception("'$text' illeagal text", 1);
         }
         $this->ip = array_shift($arr);
-        $this->hosts = $arr;
+        $this->hosts = array_filter($arr);
     }
 
     public function fromIpHost($ip, $host)

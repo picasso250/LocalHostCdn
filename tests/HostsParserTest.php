@@ -12,7 +12,10 @@ class HostsParserTest extends PHPUnit_Framework_TestCase
         ';
         file_put_contents($filename, $content);
         $parser->parse($filename);
-        $this->assertEquals('127.0.0.1', $this->lines[1]->map->ip);
+        $lines = $parser->lines;
+        $map = $lines[2];
+        $ip = $map->ip;
+        $this->assertEquals('127.0.0.1', $ip);
         unlink($filename);
     }
 }
