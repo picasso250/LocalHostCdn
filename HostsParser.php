@@ -52,4 +52,42 @@ class HostsParser
         $this->lines[] = $line;
         return $i;
     }
+
+    public function deleteRule($ip, $host)
+    {
+        foreach ($this->lines as $i => $line) {
+            if ($line->type == Line::TYPE_MIX) {
+                if ($line->map->ip == $ip) {
+                    if ($line->map->hostExists($host)) {
+                        // maybe we do not need to remove line
+                        // because when use delete a ip rule and then add it (modify)
+                        // it will go to the end of file
+                        // and that sucks?
+                        if (!$line->map->deleteHost($host)) {
+                            $this->removeLine($i);
+                        }
+                        return $i;
+                    } else {
+                        throw new \Exception("no host '$host' in line $i ", 1);
+                        return $i;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public function removeLine($i)
+    {
+        unset($this->lines[$i]);
+    }
+
+    public function format()
+    {
+        $lines = array_map(function ($line) use ($this) {
+            return $line->toText();
+        }, $this->lines);
+        return implode('\n', $lines);
+    }
+
 }

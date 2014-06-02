@@ -29,4 +29,25 @@ class Map
         $this->ip = $ip;
         $this->hosts = array($host);
     }
+
+    public function hostExists($host)
+    {
+        return in_array($host, $this->hosts);
+    }
+
+    public function addHost($host)
+    {
+        $this->hosts[] = $host;
+    }
+
+    public function deleteHost($host)
+    {
+        $this->hosts = array_diff($this->hosts, array($host));
+        return !empty($this->hosts);
+    }
+
+    public function toText()
+    {
+        return $this->ip."\t".implode("\t", $this->hosts);
+    }
 }

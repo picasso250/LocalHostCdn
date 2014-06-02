@@ -7,4 +7,9 @@ class Comment
     {
         $this->text = trim($text);
     }
+
+    public function toText()
+    {
+        return '# '.$this->text;
+    }
 }
