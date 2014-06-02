@@ -84,7 +84,7 @@ class HostsParser
 
     public function format()
     {
-        $lines = array_map(function ($line) use ($this) {
+        $lines = array_map(function ($line) {
             return $line->toText();
         }, $this->lines);
         return implode('\n', $lines);
