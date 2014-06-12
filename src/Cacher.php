@@ -12,10 +12,9 @@ class Cacher
 
     public function fetch($url)
     {
+        $api = new Api;
         $query = array('url' => $url);
-        $url = $this->api_url.'?'.http_build_query($query);
-        $ch = curl_init($url);
-        curl_setopt($ch, CURL_RETURN_TRANSFER, true);
-        return curl_exec($ch);
+        $ret = $api->get($this->api_url, $query);
+        return $ret['content'];
     }
 }

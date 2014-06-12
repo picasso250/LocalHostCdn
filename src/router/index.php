@@ -3,7 +3,7 @@
  * router
  */
 
-require 'autoload.php';
+require '../autoload.php';
 
 $searcher = new FileSearcher;
 $url = $_SERVER['HOST'].$_SERVER['REQUEST_URI'];

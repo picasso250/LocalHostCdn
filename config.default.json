@@ -1,0 +1,10 @@
+{
+    "api":
+    {
+        "url":
+        {
+            "check": "http://xctest.sinaapp.com/server/index.php?api=check"
+        }
+    },
+    "proxy": "127.0.0.1:8087"
+}
