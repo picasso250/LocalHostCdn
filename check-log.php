@@ -1,5 +1,8 @@
 <?php
 
+// Usage: check-log <log-file>
+// must in htdocs directory
+
 $log_file = $argv[1];
 
 $size = filesize($log_file);
