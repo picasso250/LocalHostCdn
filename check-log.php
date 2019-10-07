@@ -1,7 +1,7 @@
 <?php
 
 // Usage: check-log <log-file>
-// must in htdocs directory
+// must run in htdocs directory
 
 $log_file = $argv[1];
 
